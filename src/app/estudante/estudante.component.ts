@@ -1,5 +1,5 @@
-import {EstudanteService} from './EstudanteService';
-import { Estudante } from '../estudante';
+import { EstudanteService } from './../estudante.service';
+import { Aluno } from '../estudante';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
@@ -9,12 +9,12 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./estudante.component.css']
 })
 export class EstudanteComponent {
-  estudante: Estudante[] = [];
+  estudante: Aluno[] = [];
   isEditing: boolean = false;
   formGroupEstudante: FormGroup;
 
   constructor(
-    private estudanteService: EstudanteService,
+    private alunoService: EstudanteService,
     private formBuilder: FormBuilder
   ) {
     this.formGroupEstudante = formBuilder.group({
@@ -31,14 +31,14 @@ export class EstudanteComponent {
     this.loadEstudantes();
   }
   loadEstudantes(){
-    this.estudanteService.getEstudantes().subscribe({
+    this.alunoService.getEstudantes().subscribe({
       next: (data) => (this.estudante = data),
     });
   }
 
   save() {
     if (this.isEditing) {
-      this.estudanteService.update(this.formGroupEstudante.value).subscribe({
+      this.alunoService.update(this.formGroupEstudante.value).subscribe({
         next: () => {
           this.loadEstudantes();
           this.formGroupEstudante.reset();
@@ -47,7 +47,7 @@ export class EstudanteComponent {
       });
     }
     else {
-      this.estudanteService.save(this.formGroupEstudante.value).subscribe({
+      this.alunoService.save(this.formGroupEstudante.value).subscribe({
         next: data => {
           this.estudante.push(data)
           this.formGroupEstudante.reset();
@@ -61,13 +61,13 @@ export class EstudanteComponent {
     this.isEditing = false;
   }
 
-  edit(estudante: Estudante) {
+  edit(estudante: Aluno) {
     this.formGroupEstudante.setValue(estudante);
     this.isEditing = true;
   }
 
-  remove(estudante: Estudante) {
-    this.estudanteService.delete(estudante).subscribe({
+  remove(estudante: Aluno) {
+    this.alunoService.delete(estudante).subscribe({
       next: () => this.loadEstudantes(),
     });
   }

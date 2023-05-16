@@ -27,8 +27,8 @@
       </div>
     </form>
     <div class="mb-4 d-flex justify-content-end">
-      <button class="btn btn-primary">Salvar</button>
-      <button class="btn btn-danger" (click)="FormReset()">Limpar</button>
+      <button class="btn btn-primary" (click)="save()">Salvar</button>
+      <button class="btn btn-danger" (click)="clean()">Limpar</button>
     </div>
   </div>
 </div>
@@ -51,12 +51,12 @@
       <th scope="row">{{estudante.id}}</th>
       <td>{{estudante.name}}</td>
       <td>{{estudante.email}}</td>
-      <td>{{estudante.telefone}</td>
-      <td>{{estudante.idade}</td>
-      <td>{estudante.rg</td>
+      <td>{{estudante.telefone}}</td>
+      <td>{{estudante.idade}}</td>
+      <td>{{estudante.rg}}</td>
       <td>
-        <button class="btn btn-warning me-1" (click)="edit(client)">Editar</button>
-        <button class="btn btn-info" (click)="delete(client)">Excluir</button>
+        <button class="btn btn-warning me-1" (click)="edit(estudante)">Editar</button>
+        <button class="btn btn-info" (click)="remove(estudante)">Excluir</button>
       </td>
     </tr>
   </tbody>
