@@ -1,0 +1,28 @@
+{
+  "aluno": [
+    {
+      "id": 1,
+      "name": "Carlos",
+      "email": "carlos02@gmail.com",
+      "telefone": "11977886543",
+      "idade": "18",
+      "rg": "7878779545"
+    },
+    {
+      "id": 2,
+      "name": "Cleiton",
+      "email": "cleitin@gmail.com",
+      "telefone": "11923232122",
+      "idade": "",
+      "rg": ""
+    },
+    {
+      "id": 3,
+      "name": "José",
+      "email": "jose@gmail.com",
+      "telefone": "11984848484",
+      "idade": "21",
+      "rg": "12123456789"
+    }
+  ]
+}

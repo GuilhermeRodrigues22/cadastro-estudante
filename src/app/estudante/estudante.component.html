@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col-8 m-auto">
+    <form>
+      <div class="mb-3">
+        <div class="display-6 text-center">
+          Cadastro de Estudante
+        </div>
+        <label for="name" class="form-label">Nome:</label>
+        <input type="text" formControlName="name" class="form-control" id="name" placeholder="Insira seu Nome">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" formControlName="email" class="form-control" id="email" placeholder="Insira seu E-mail">
+      </div>
+      <div class="mb-3">
+        <label for="telefone" class="form-label">Telefone:</label>
+        <input type="number" formControlName="telefone" class="form-control" id="telefone"
+          placeholder="Insira seu Telefone">
+      </div>
+      <div class="mb-3">
+        <label for="idade" class="form-label">Idade:</label>
+        <input type="number" formControlName="idade" class="form-control" id="idade" placeholder="Insira sua Idade">
+      </div>
+      <div class="mb-3">
+        <label for="rg" class="form-label">RG:</label>
+        <input type="number" formControlName="rg" class="form-control" id="rg" placeholder="Insira seu RG">
+      </div>
+    </form>
+    <div class="mb-4 d-flex justify-content-end">
+      <button class="btn btn-primary">Salvar</button>
+      <button class="btn btn-danger" (click)="FormReset()">Limpar</button>
+    </div>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Email</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Idade</th>
+      <th scope="col">RG</th>
+      <th scope="col">Opções</th>
+    </tr>
+
+  </thead>
+  <tbody>
+    <tr *ngFor="let estudante of estudante">
+      <th scope="row">{{estudante.id}}</th>
+      <td>{{estudante.name}}</td>
+      <td>{{estudante.email}}</td>
+      <td>{{estudante.telefone}</td>
+      <td>{{estudante.idade}</td>
+      <td>{estudante.rg</td>
+      <td>
+        <button class="btn btn-warning me-1" (click)="edit(client)">Editar</button>
+        <button class="btn btn-info" (click)="delete(client)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
